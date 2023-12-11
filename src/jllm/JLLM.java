@@ -13,6 +13,7 @@ import model.IRepository;
 import model.Json;
 import model.Model;
 import model.MensajeFake;
+import model.Smart;
 import model.Xml;
 import view.ApplicationView;
 import view.SimpleConsoleView;
@@ -100,6 +101,9 @@ public class JLLM {
                     
                 case "csv":
                         return new CSV();
+                
+                case "smart":
+                    return new Smart();
                 
                 default:
                     return new MensajeFake();

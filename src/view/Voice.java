@@ -34,6 +34,7 @@ public class Voice extends ApplicationView {
     
     @Override
     public void showMainMenu(){
+        
         List<String> opciones= new ArrayList<String>();
         opciones.add("MENU PRINCIPAL");
         opciones.add("OPCIONES:");

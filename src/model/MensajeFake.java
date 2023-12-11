@@ -12,7 +12,6 @@ import java.nio.file.StandardOpenOption;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 /**
  *
@@ -81,6 +80,16 @@ public class MensajeFake extends TipoMensaje implements ILLM{
                 if(comprobarPalabra(texto,"hobbies")){
                     
                     String palabraFichero = "Agente" + df.format(fecha) + "Mis hobbies?, hm... Supongo que me gusta hablar con las personas, ah si, me gustaria tocar el piano tambien!" ;
+                    Files.write(ruta,palabraFichero.getBytes(),StandardOpenOption.APPEND);
+                    Files.write(ruta,salto.getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+                
+                 return(palabraFichero);
+                    
+                }
+                
+                 if(comprobarPalabra(texto,"cancion")){
+                    
+                    String palabraFichero = "Agente" + df.format(fecha) + "Me suelen gustar las canciones de tecno, soy un robot al fin y al cabo" ;
                     Files.write(ruta,palabraFichero.getBytes(),StandardOpenOption.APPEND);
                     Files.write(ruta,salto.getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
                 

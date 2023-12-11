@@ -85,6 +85,17 @@ public class Smart extends TipoMensaje implements ILLM{
                  return(palabraFichero);
                     
                 }
+                
+                
+                if(comprobarPalabra(texto,"cancion")){
+                    
+                    String palabraFichero = "Agente" + df.format(fecha) + "Me suelen gustar las canciones de tecno, soy un robot al fin y al cabo" ;
+                    Files.write(ruta,palabraFichero.getBytes(),StandardOpenOption.APPEND);
+                    Files.write(ruta,salto.getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+                
+                 return(palabraFichero);
+                    
+                }
         
         Files.write(ruta,no_response.getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
         Files.write(ruta,salto.getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);

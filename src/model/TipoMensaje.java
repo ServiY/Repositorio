@@ -4,6 +4,8 @@
  */
 package model;
 
+import io.github.amithkoujalgi.ollama4j.core.OllamaAPI;
+import io.github.amithkoujalgi.ollama4j.core.exceptions.OllamaBaseException;
 import io.github.jonelo.jAdapterForNativeTTS.engines.SpeechEngine;
 import io.github.jonelo.jAdapterForNativeTTS.engines.SpeechEngineNative;
 import io.github.jonelo.jAdapterForNativeTTS.engines.VoicePreferences;
@@ -234,12 +236,16 @@ public class TipoMensaje{
           
       }
       
-    public void leerConVoz(List<String> opciones){
+    public void leerConVoz(List<String> opciones) throws OllamaBaseException, InterruptedException{
       try {
+          
+                 String host = "http://localhost:11434/";
+                 OllamaAPI ollamaAPI = new OllamaAPI(host);
+                 
                  SpeechEngine speechEngine = SpeechEngineNative.getInstance();
-                    List<   io.github.jonelo.jAdapterForNativeTTS.engines.Voice> voices = speechEngine.getAvailableVoices();
+                    List<io.github.jonelo.jAdapterForNativeTTS.engines.Voice> voices = speechEngine.getAvailableVoices();
               
-
+                   
                    // We want to find a voice according our preferences
                    VoicePreferences voicePreferences = new VoicePreferences();
                    voicePreferences.setLanguage("en"); //  ISO-639-1
@@ -257,6 +263,9 @@ public class TipoMensaje{
                    speechEngine.setVoice(voice.getName());
                    int i=0;
                    for(String opcion:opciones){
+                    
+                   String msg= opciones.get(i);
+                   String response=ollamaAPI.ask("mistral", msg);
                    speechEngine.say(opciones.get(i));
                      try {
                          Thread.sleep(3000);

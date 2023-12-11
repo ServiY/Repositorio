@@ -312,9 +312,9 @@ public class SimpleConsoleView extends ApplicationView {
         Path ruta2= Paths.get(System.getProperty("user.home"), "Desktop", "JLLM", "jLLMMensajesXML.xml"); 
         Path ruta3= Paths.get(System.getProperty("user.home"), "Desktop", "JLLM", "jLLMPrimeraFraseXML.xml"); 
         
-        controller.importarIRepositoryConversaciones(ruta);
-      //  controller.importarIRepositoryMensajes(ruta2);
-      //  controller.importarIRepositoryPrimeraFrase(ruta3);
+        //controller.importarIRepositoryConversaciones(ruta);
+        controller.importarIRepositoryMensajes(ruta2);
+        controller.importarIRepositoryPrimeraFrase(ruta3);
         
         System.out.println("IMPORTACION COMPLETADA CON EXITO");
         controller.finalDeConversacion();

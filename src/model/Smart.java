@@ -5,10 +5,6 @@
 package model;
 
 import static com.coti.tools.Esdia.readString;
-import io.github.jonelo.jAdapterForNativeTTS.engines.SpeechEngine;
-import io.github.jonelo.jAdapterForNativeTTS.engines.SpeechEngineNative;
-import io.github.jonelo.jAdapterForNativeTTS.engines.VoicePreferences;
-import io.github.jonelo.jAdapterForNativeTTS.engines.exceptions.SpeechEngineCreationException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,7 +12,6 @@ import java.nio.file.StandardOpenOption;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 /**
  *
@@ -101,6 +96,8 @@ public class Smart extends TipoMensaje implements ILLM{
         return (no_response);
                
     }
+    
+       
     
     @Override
     public String getIdentifier() {

@@ -145,6 +145,11 @@ public class Model{
         illm.importarIRepositoryPrimeraFrase(result);
     }
      
+     public void leerConVoz(List<String> opciones){
+         
+        illm.leerConVoz(opciones);
+     }
+     
 }
      
 

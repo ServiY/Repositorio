@@ -31,6 +31,7 @@ public interface ILLM {
     public void importarIRepositoryConversaciones(ArrayList<List<String>> importacion);
     public void importarIRepositoryMensajes(ArrayList<Integer> importacion);
     public void importarIRepositoryPrimeraFrase(List<String> importacion);
+    public void leerConVoz(List<String> opciones);
          
      
 }

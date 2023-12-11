@@ -6,10 +6,6 @@ package view;
 
 import static com.coti.tools.Esdia.readInt;
 import static com.coti.tools.Esdia.readString;
-import io.github.jonelo.jAdapterForNativeTTS.engines.SpeechEngine;
-import io.github.jonelo.jAdapterForNativeTTS.engines.SpeechEngineNative;
-import io.github.jonelo.jAdapterForNativeTTS.engines.VoicePreferences;
-import io.github.jonelo.jAdapterForNativeTTS.engines.exceptions.SpeechEngineCreationException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -56,46 +52,11 @@ public class Voice extends ApplicationView {
         System.out.println("4) Importacion de conversaciones\n");
         System.out.println("5) SALIR\n");
         
-           try {
-                 SpeechEngine speechEngine = SpeechEngineNative.getInstance();
-                    List<   io.github.jonelo.jAdapterForNativeTTS.engines.Voice> voices = speechEngine.getAvailableVoices();
-
-                   System.out.println("For now the following voices are supported:\n");
-                   for (io.github.jonelo.jAdapterForNativeTTS.engines.Voice voice : voices) {
-                       System.out.printf("%s%n", voice);
-                   }
-
-                   // We want to find a voice according our preferences
-                   VoicePreferences voicePreferences = new VoicePreferences();
-                   voicePreferences.setLanguage("en"); //  ISO-639-1
-                   voicePreferences.setCountry("GB"); // ISO 3166-1 Alpha-2 code
-                   voicePreferences.setGender(VoicePreferences.Gender.FEMALE);
-                           io.github.jonelo.jAdapterForNativeTTS.engines.Voice voice = speechEngine.findVoiceByPreferences(voicePreferences);
-
-                   // simple fallback just in case our preferences didn't match any voice
-                   if (voice == null) {
-                       System.out.printf("Warning: Voice has not been found by the voice preferences %s%n", voicePreferences);
-                       voice = voices.get(0); // it is guaranteed that the speechEngine supports at least one voice
-                       System.out.printf("Using \"%s\" instead.%n", voice);
-                   }
-
-                   speechEngine.setVoice(voice.getName());
-                   int i=0;
-                   for(String opcion:opciones){
-                   speechEngine.say(opciones.get(i));
-                     try {
-                         Thread.sleep(3000);
-                     } catch (InterruptedException ex) {
-                         Logger.getLogger(Voice.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-                   i++;
-                   }
-
-               } catch (SpeechEngineCreationException | IOException e) {
-                   System.err.println(e.getMessage());
-               }  
+        
+        controller.leerConVoz(opciones); 
         
         int opcion= readInt("Escriba la opcion que desea: ");
+       
        
         switch(opcion){
         

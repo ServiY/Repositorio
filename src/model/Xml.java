@@ -28,13 +28,14 @@ public class Xml implements IRepository{
         
         ObjectMapper xmlMapper= new XmlMapper();
      
-       File f=ruta.toFile();
+        File f=ruta.toFile();
         try{
             
             xmlMapper.writeValue(f,conversaciones);
-        //    Files.write(ruta, xml.getBytes(StandardCharsets.UTF_8),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+
            
         }catch(IOException e ){
+            e.printStackTrace();
         }
           
     }
@@ -44,29 +45,34 @@ public class Xml implements IRepository{
     @Override
     public void exportarIRepositoryMensajes(ArrayList<Integer> mensajes,Path ruta ){
         
-           ObjectMapper xmlMapper= new XmlMapper();
       
+        ObjectMapper xmlMapper= new XmlMapper();
+     
+        File f=ruta.toFile();
         try{
             
-            String xml = xmlMapper.writeValueAsString( mensajes);
-            Files.write(ruta, xml.getBytes(StandardCharsets.UTF_8),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+            xmlMapper.writeValue(f,mensajes);
+
            
         }catch(IOException e ){
+            e.printStackTrace();
         }
           
     }
     
     @Override
     public void exportarIRepositoryPrimeraFrase(List<String> primeraFrase,Path ruta ){
-        
-          ObjectMapper xmlMapper= new XmlMapper();
-      
+           
+        ObjectMapper xmlMapper= new XmlMapper();
+     
+        File f=ruta.toFile();
         try{
             
-            String xml = xmlMapper.writeValueAsString(primeraFrase);
-            Files.write(ruta, xml.getBytes(StandardCharsets.UTF_8),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
-        
+            xmlMapper.writeValue(f,primeraFrase);
+
+           
         }catch(IOException e ){
+            e.printStackTrace();
         }
           
     }

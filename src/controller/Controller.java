@@ -130,6 +130,11 @@ public class Controller {
            
            model.importarIRepositoryPrimeraFrase(ruta);
        }
+        
+        public void leerConVoz(List<String> opciones){
+            
+            model.leerConVoz(opciones);
+        }
     
        
 }

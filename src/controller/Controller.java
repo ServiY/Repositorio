@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controller;
+import io.github.amithkoujalgi.ollama4j.core.exceptions.OllamaBaseException;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
@@ -131,7 +132,7 @@ public class Controller {
            model.importarIRepositoryPrimeraFrase(ruta);
        }
         
-        public void leerConVoz(List<String> opciones){
+        public void leerConVoz(List<String> opciones) throws OllamaBaseException, InterruptedException{
             
             model.leerConVoz(opciones);
         }

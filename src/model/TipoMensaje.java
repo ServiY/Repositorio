@@ -239,11 +239,10 @@ public class TipoMensaje{
     public void leerConVoz(List<String> opciones) throws OllamaBaseException, InterruptedException{
       try {
           
-                 String host = "http://localhost:11434/";
-                 OllamaAPI ollamaAPI = new OllamaAPI(host);
+                
                  
-                 SpeechEngine speechEngine = SpeechEngineNative.getInstance();
-                    List<io.github.jonelo.jAdapterForNativeTTS.engines.Voice> voices = speechEngine.getAvailableVoices();
+                   SpeechEngine speechEngine = SpeechEngineNative.getInstance();
+                   List<io.github.jonelo.jAdapterForNativeTTS.engines.Voice> voices = speechEngine.getAvailableVoices();
               
                    
                    // We want to find a voice according our preferences
@@ -257,15 +256,13 @@ public class TipoMensaje{
                    if (voice == null) {
 
                        voice = voices.get(0); // it is guaranteed that the speechEngine supports at least one voice
-                       System.out.printf("Using \"%s\" instead.%n", voice);
+                
                    }
 
                    speechEngine.setVoice(voice.getName());
                    int i=0;
                    for(String opcion:opciones){
                     
-                   String msg= opciones.get(i);
-                   String response=ollamaAPI.ask("mistral", msg);
                    speechEngine.say(opciones.get(i));
                      try {
                          Thread.sleep(3000);

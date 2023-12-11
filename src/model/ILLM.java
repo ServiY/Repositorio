@@ -4,6 +4,7 @@
  */
 package model;
 
+import io.github.amithkoujalgi.ollama4j.core.exceptions.OllamaBaseException;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,7 @@ public interface ILLM {
     public void importarIRepositoryConversaciones(ArrayList<List<String>> importacion);
     public void importarIRepositoryMensajes(ArrayList<Integer> importacion);
     public void importarIRepositoryPrimeraFrase(List<String> importacion);
-    public void leerConVoz(List<String> opciones);
+    public void leerConVoz(List<String> opciones)throws OllamaBaseException, InterruptedException;
          
      
 }

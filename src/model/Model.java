@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
+import io.github.amithkoujalgi.ollama4j.core.exceptions.OllamaBaseException;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -145,7 +146,7 @@ public class Model{
         illm.importarIRepositoryPrimeraFrase(result);
     }
      
-     public void leerConVoz(List<String> opciones){
+     public void leerConVoz(List<String> opciones) throws OllamaBaseException, InterruptedException{
          
         illm.leerConVoz(opciones);
      }
